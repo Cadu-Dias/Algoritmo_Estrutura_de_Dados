@@ -40,5 +40,27 @@ public class ArvoreBinariaBusca {
         }
     }
 
-    
+    private NoBinario raiz;
+    //apenas construtor padrão
+    public void insere(int i) {
+
+        NoBinario novo = new NoBinario(i);
+
+        if(raiz == null) raiz = novo;
+        
+        else insereRec(raiz, novo);
+    }
+
+    private void insereRec(NoBinario atual, NoBinario novo) {
+        if(novo.getInfo() <= atual.getInfo()) {
+            if(atual.getEsq() == null) atual.setEsq(novo);
+            
+            else insereRec(atual.getEsq(), novo);
+        }
+        else {
+            if(atual.getDir() == null) atual.setDir(novo);
+            
+            else insereRec(atual.getDir(), novo);
+        }
+    }
 }
