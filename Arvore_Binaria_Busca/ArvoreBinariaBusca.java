@@ -72,9 +72,22 @@ public class ArvoreBinariaBusca {
 
     private String exibeEmOrdemRec(NoBinario atual) {
 
-        if (atual != null) return exibeEmOrdemRec(atual.getEsq()) + atual.getInfo() + exibeEmOrdemRec(atual.getDir());
+        if (atual != null) return exibeEmOrdemRec(atual.getEsq()) + atual.getInfo() + " " + exibeEmOrdemRec(atual.getDir());
 
         return "";
+    }
+
+    public int exibePosOrdem() {
+        if(raiz == null) return 0;
+
+        return exibePosOrdemRec(raiz);
+    }
+
+    private int exibePosOrdemRec(NoBinario atual) {
+
+        if (atual != null) return exibePosOrdemRec(atual.getEsq()) + exibePosOrdemRec(atual.getDir()) + 1;
+
+        return 0;
     }
 }
 /*pergunta de prova:
