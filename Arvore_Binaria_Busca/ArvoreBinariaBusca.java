@@ -63,4 +63,22 @@ public class ArvoreBinariaBusca {
             else insereRec(atual.getDir(), novo);
         }
     }
+
+    public String exibeEmOrdem() {
+        if(raiz == null) return "Arvore Vazia";
+
+        return exibeEmOrdemRec(raiz);
+    }
+
+    private String exibeEmOrdemRec(NoBinario atual) {
+
+        if (atual != null) return exibeEmOrdemRec(atual.getEsq()) + atual.getInfo() + exibeEmOrdemRec(atual.getDir());
+
+        return "";
+    }
 }
+/*pergunta de prova:
+  
+    A partir de um código, desenhar qual será a árvore que será formada a
+    partir daquele código 
+*/
